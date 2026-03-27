@@ -23,6 +23,7 @@ async def _get_agent_client(request: Request) -> AgentClient:
         _agent_client = AgentClient(
             okta_client=request.app.state.okta_client,
             gateway_client=request.app.state.agentcore_client,
+            jwt_validator=request.app.state.jwt_validator
         )
         await _agent_client.initialize()
 
@@ -70,7 +71,10 @@ async def ask_agent(request_body: AgentRequest, request: Request) -> AgentRespon
     except HTTPException:
         raise
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Agent error: {str(e)}")
+        import traceback
+        tb = traceback.format_exc()
+        # Include full traceback in error detail for debugging
+        raise HTTPException(status_code=500, detail=f"Agent error: {str(e)}\nTraceback:\n{tb}")
 
 
 @router.get("/health")

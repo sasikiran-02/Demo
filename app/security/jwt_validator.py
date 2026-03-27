@@ -55,7 +55,7 @@ class JWTValidator:
                 algorithms=[jwk.get("alg", "RS256")],
                 audience=self._settings.okta_audience,
                 issuer=self._settings.okta_issuer,
-                options={"require": ["exp", "nbf", "iss", "aud"]},
+                options={"require": ["exp", "iss", "aud"]},
             )
         except jwt.ExpiredSignatureError as exc:
             raise AppError(

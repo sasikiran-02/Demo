@@ -1,9 +1,0 @@
-{
-  "gateway_url": "https://okatatest-2-gzadj9w7lh.gateway.bedrock-agentcore.us-east-1.amazonaws.com/mcp",
-  "okta": {
-    "issuer": "https://integrator-6041835.okta.com/oauth2/aus11amedfnBGypyk698",
-    "client_id": "0oa11ambsm9ZDko4a698",
-    "client_secret": "Q1sYEB4hnhQKZ_z36ZRD_ldlQRmORI7rVnHEn6LpEdWf6mdZHgNO6khqxQwBvhTX",
-    "scope": "jwtread"
-  }
-}
